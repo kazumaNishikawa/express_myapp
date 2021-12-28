@@ -7,8 +7,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var mongoose = require("mongoose");
-var mongoDB =
-  "mongodb+srv://nishimongo:ki3Xu5GX@cluster0.ffgku.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var dev_db_url =
+  "mongodb+srv://cooluser:coolpassword@cluster0-mbdj7.mongodb.net/local_library?retryWrites=true";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
